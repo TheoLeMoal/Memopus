@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Memopus
 Ce projet est basée sur le site Memopus.com
 
-## Lancé les serveurs
+## Lancer les serveurs
 
 Lancer `ng serve` à la racine du projet
 Lancer `start:json-server` à l'endroi ou se trouve le fichier `db.json`

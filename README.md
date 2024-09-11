@@ -6,7 +6,7 @@ Ce projet est basée sur le site Memopus.com
 
 ## Lancer les serveurs
 Lancer `ng serve` à la racine du projet et allez sur "http://localhost:4200"
-Lancer `start:json-server` à l'endroi ou se trouve le fichier `db.json`
+Lancer `start:json-server` à la racine du projet
 
 ## Connexion
 Pour ce connecter il faut utiliser 1 des 2 utilisateur

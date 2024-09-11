@@ -20,7 +20,7 @@
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
                 <button class="btn btn-primary" (click)="moveCard(card.id, 'left')"><</button>
-                <h4 class="card-title" (click)="toggleAnswer(card.id)">{{card.question}}</h4>
+                <h4 class="card-title" role="button" (click)="toggleAnswer(card.id)">{{card.question}}</h4>
                 <button class="btn btn-primary" (click)="moveCard(card.id, 'right')">></button>  
               </div>
               <p class="card-text" *ngIf="card.showAnswer">{{card.answer}}</p>
@@ -29,11 +29,12 @@
               </p>
               <div>
                 <input
+                  class="form-control"
                   type="text"
                   [(ngModel)]="card.userAnswer"
                   placeholder="Proposez une réponse"
                 />
-                <button class="btn btn-success" (click)="proposeAnswer(card.id, card.userAnswer!)">
+                <button class="btn btn-success w-100" (click)="proposeAnswer(card.id, card.userAnswer!)">
                   Proposer une réponse
                 </button>
                 <p *ngIf="card.comparisonResult">{{ card.comparisonResult }}</p>

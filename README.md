@@ -10,5 +10,5 @@ Lancer `start:json-server` à l'endroi ou se trouve le fichier `db.json`
 
 ## Connexion
 Pour ce connecter il faut utiliser 1 des 2 utilisateur
-`username: user1` `password: password1`
-`username: user2` `password: password2`
+`username: user1, password: password1`
+`username: user2, password: password2`

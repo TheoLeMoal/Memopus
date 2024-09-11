@@ -1,0 +1,65 @@
+{
+  "cards": [
+    {
+      "id": "4ffc",
+      "question": "test",
+      "answer": "ng new nomDuProjet",
+      "description": "ceci est un test",
+      "tag": "1631",
+      "column": "2"
+    },
+    {
+      "id": "56d3",
+      "question": "Mettre en gras",
+      "answer": "<bold></bold>",
+      "description": "<***></***>",
+      "tag": "769a",
+      "column": "1",
+      "showAnswer": false
+    }
+  ],
+  "tags": [
+    {
+      "id": "1631",
+      "label": "JavaScript"
+    },
+    {
+      "id": "769a",
+      "label": "CSS"
+    }
+  ],
+  "columns": [
+    {
+      "id": "1",
+      "label": "À apprendre",
+      "order": 1
+    },
+    {
+      "id": "2",
+      "label": "Je sais un peu",
+      "order": 2
+    },
+    {
+      "id": "3",
+      "label": "Je sais bien",
+      "order": 3
+    },
+    {
+      "id": "4",
+      "label": "Je sais parfaitement",
+      "order": 4
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "user1",
+      "password": "password1"
+    },
+    {
+      "id": "2",
+      "username": "user2",
+      "password": "password2"
+    }
+  ]
+}

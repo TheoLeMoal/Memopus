@@ -1,0 +1,124 @@
+<div class="container mt-4">
+  <h2>Manage Cards</h2>
+  
+  <div class="row">
+    <div *ngFor="let column of columns" class="col-md-3 mb-4">
+      <div *ngIf="column.id !== undefined" class="border rounded p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <h3>{{column.label}}</h3>
+          <button
+            class="btn btn-sm btn-success"
+            (click)="openModal(column.id)"
+            data-bs-toggle="modal"
+            data-bs-target="#createCardModal"
+          >
+            +
+          </button>
+        </div>
+        <div *ngFor="let card of getCardsByColumn(column.id)" class="card mb-3">
+          <div *ngIf="card.id">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="btn btn-primary" (click)="moveCard(card.id, 'left')"><</button>
+                <h4 class="card-title" (click)="toggleAnswer(card.id)">{{card.question}}</h4>
+                <button class="btn btn-primary" (click)="moveCard(card.id, 'right')">></button>  
+              </div>
+              <p class="card-text" *ngIf="card.showAnswer">{{card.answer}}</p>
+              <p class="card-text">
+                <small class="text-muted">{{card.description}}</small>
+              </p>
+              <div>
+                <input
+                  type="text"
+                  [(ngModel)]="card.userAnswer"
+                  placeholder="Proposez une réponse"
+                />
+                <button class="btn btn-success" (click)="proposeAnswer(card.id, card.userAnswer!)">
+                  Proposer une réponse
+                </button>
+                <p *ngIf="card.comparisonResult">{{ card.comparisonResult }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="createCardModal"
+  tabindex="-1"
+  aria-labelledby="createCardModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createCardModalLabel">Créer une Carte</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="addCard()">
+          <div class="mb-3">
+            <label for="question" class="form-label">Question:</label>
+            <input
+              id="question"
+              [(ngModel)]="newCard.question"
+              name="question"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="answer" class="form-label">Answer:</label>
+            <input
+              id="answer"
+              [(ngModel)]="newCard.answer"
+              name="answer"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <input
+              id="description"
+              [(ngModel)]="newCard.description"
+              name="description"
+              class="form-control"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="tag" class="form-label">Tag:</label>
+            <select
+              id="tag"
+              [(ngModel)]="newCard.tag"
+              name="tag"
+              class="form-select"
+            >
+              <option *ngFor="let tag of tags" [value]="tag.id">
+                {{tag.label}}
+              </option>
+            </select>
+          </div>
+
+          <input type="hidden" [(ngModel)]="newCard.column" name="column" />
+
+          <button type="submit" class="btn btn-primary">
+            Ajouter la Carte
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
